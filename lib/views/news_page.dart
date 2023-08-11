@@ -10,6 +10,6 @@ class NewsHomePage extends StatefulWidget {
 class _NewsHomePageState extends State<NewsHomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold();
   }
 }
