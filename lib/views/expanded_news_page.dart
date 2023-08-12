@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -37,7 +38,7 @@ class _HomePageState extends State<HomePage> {
                   fontWeight: FontWeight.bold),
             ),
             leading: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: InkWell(
                 onTap: () {
                   Navigator.pop(context);
@@ -63,12 +64,23 @@ class _HomePageState extends State<HomePage> {
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             fit: BoxFit.cover,
-                            image: NetworkImage(widget.imageUrl))),
+                            image: CachedNetworkImageProvider(
+                              widget.imageUrl,
+                              errorListener: () {
+                                const Text(
+                                  'Loading',
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    fontSize: 20,
+                                  ),
+                                );
+                              },
+                            ))),
                   ),
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(
+                margin: const EdgeInsets.only(
                   left: 20,
                   top: 180,
                   right: 40,
@@ -82,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                         widget.title,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white,
                             fontSize: 30,
                             fontWeight: FontWeight.w600),
@@ -91,12 +103,12 @@ class _HomePageState extends State<HomePage> {
                         widget.description,
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.normal),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(children: [
@@ -107,7 +119,7 @@ class _HomePageState extends State<HomePage> {
                         const SizedBox(
                           width: 10,
                         ),
-                        Spacer(),
+                        const Spacer(),
                         const Icon(
                           Icons.calendar_month_outlined,
                           color: Colors.white,
@@ -126,7 +138,7 @@ class _HomePageState extends State<HomePage> {
           ),
           SliverToBoxAdapter(
             child: Container(
-              margin: EdgeInsets.only(left: 20, right: 20, top: 40),
+              margin: const EdgeInsets.only(left: 20, right: 20, top: 40),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -137,7 +149,7 @@ class _HomePageState extends State<HomePage> {
                         fontWeight: FontWeight.w600,
                         color: Colors.grey[600]),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                 ],

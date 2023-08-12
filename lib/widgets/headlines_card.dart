@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class NewsCard extends StatelessWidget {
@@ -8,7 +9,7 @@ class NewsCard extends StatelessWidget {
   final String imageUrl;
   const NewsCard(
       {required this.title,
-       this.author,
+      this.author,
       required this.description,
       required this.imageUrl,
       required this.publishedAt});
@@ -31,7 +32,20 @@ class NewsCard extends StatelessWidget {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
-                      fit: BoxFit.cover, image: NetworkImage(imageUrl)))),
+                    fit: BoxFit.cover,
+                    image: CachedNetworkImageProvider(
+                      imageUrl,
+                      errorListener: () {
+                        const Text(
+                          'Loading',
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: 20,
+                          ),
+                        );
+                      },
+                    ),
+                  ))),
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20, top: 5),
             child: Column(
@@ -56,7 +70,6 @@ class NewsCard extends StatelessWidget {
                       Icons.person_rounded,
                       color: Colors.black26,
                     ),
-                  
                     Text(
                       publishedAt,
                       style: const TextStyle(color: Colors.black, fontSize: 10),

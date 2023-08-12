@@ -4,12 +4,10 @@ import 'package:lmg_news_app_demo/views/news_page.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
-  
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'LMG NEWS APP DEMO',
       theme: ThemeData(
-      
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-  home:NewsPage() ,
+      home: NewsPage(),
     );
   }
 }
-
-
