@@ -4,11 +4,11 @@ class NewsCard extends StatelessWidget {
   final String title;
   final String description;
   final String publishedAt;
-  final String author;
+  final String? author;
   final String imageUrl;
   const NewsCard(
-      {super.key, required this.title,
-      required this.author,
+      {required this.title,
+       this.author,
       required this.description,
       required this.imageUrl,
       required this.publishedAt});
@@ -56,12 +56,7 @@ class NewsCard extends StatelessWidget {
                       Icons.person_rounded,
                       color: Colors.black26,
                     ),
-                    Text(author),
-                    const Spacer(),
-                    const Icon(
-                      Icons.calendar_month_outlined,
-                      color: Colors.black26,
-                    ),
+                  
                     Text(
                       publishedAt,
                       style: const TextStyle(color: Colors.black, fontSize: 10),

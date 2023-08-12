@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:lmg_news_app_demo/controllers/news_controller.dart';
 import 'package:lmg_news_app_demo/views/news_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
+  
 }
 
 class MyApp extends StatelessWidget {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     Get.put(NewsController());
+    // Get.put(NewsController());
     return MaterialApp(
       title: 'LMG NEWS APP DEMO',
       theme: ThemeData(
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-  home:NewsScreen() ,
+  home:NewsPage() ,
     );
   }
 }
