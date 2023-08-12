@@ -8,7 +8,7 @@ class HomePage extends StatefulWidget {
 
   final String imageUrl;
 
-  const HomePage({
+  const HomePage({super.key, 
     required this.title,
     required this.description,
     required this.publishedAt,

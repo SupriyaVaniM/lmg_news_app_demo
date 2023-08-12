@@ -8,7 +8,7 @@ class NewsCard extends StatelessWidget {
   final String? author;
   final String imageUrl;
   const NewsCard(
-      {required this.title,
+      {super.key, required this.title,
       this.author,
       required this.description,
       required this.imageUrl,

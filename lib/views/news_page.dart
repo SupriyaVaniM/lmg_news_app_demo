@@ -19,7 +19,7 @@ class _NewsPageState extends State<NewsPage> {
     return Scaffold(
         backgroundColor: const Color.fromARGB(255, 233, 243, 252),
         appBar: AppBar(
-          title: Text("Top News"),
+          title: const Text("Top News"),
         ),
         body: Obx(
           () => newsController.isLoading.value
