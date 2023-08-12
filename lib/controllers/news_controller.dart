@@ -5,6 +5,7 @@ import 'package:lmg_news_app_demo/models/news_model.dart';
 class NewsController extends GetxController {
   var newsArticles = <NewsArticle>[].obs;
   var isLoading = true.obs;
+  NetworkService networkService = NetworkService();
 
   @override
   void onInit() {
@@ -15,11 +16,12 @@ class NewsController extends GetxController {
   void fetchArticles() async {
     try {
       isLoading(true);
-      var articles = await NetworkService.fetchNewsArticles();
-      if (articles != null) {
-        newsArticles(articles);
-      }
-    } finally {
+      var articles = await networkService.fetchNewsArticles();
+      newsArticles(articles);
+    } catch(e){
+      throw Exception(e);
+    }
+    finally {
       isLoading(false);
     }
   }
