@@ -8,10 +8,9 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
+  static bool launch = true;
   @override
   Widget build(BuildContext context) {
-    // Get.put(NewsController());
     return MaterialApp(
       title: 'LMG NEWS APP DEMO',
       theme: ThemeData(
@@ -19,7 +18,16 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const NewsPage(),
+      home: FutureBuilder(
+          future: Future.delayed(const Duration(seconds: 3)),
+          builder: (ctx, timer) => timer.connectionState == ConnectionState.done
+              ? const NewsPage()
+              : Container(
+                  color: Colors.white,
+                  child: const Image(
+                    image: AssetImage('assets/times.png'),
+                  ),
+                )),
     );
   }
 }

@@ -28,7 +28,7 @@ void main() {
           http.Response(mapJson as String, 200));
       final item = await networkService.fetchNewsArticles();
 
-      expect(item.length,3);
+      expect(item!.length,3);
 
     });
 
@@ -38,7 +38,7 @@ void main() {
           .thenAnswer((_) async => http.Response('not found', 404));
 
       final item = await networkService.fetchNewsArticles();
-      expect(item.isEmpty, false);
+      expect(item!.isEmpty, false);
     });
   });
 }

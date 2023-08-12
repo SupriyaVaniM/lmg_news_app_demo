@@ -8,7 +8,8 @@ class NewsCard extends StatelessWidget {
   final String? author;
   final String imageUrl;
   const NewsCard(
-      {super.key, required this.title,
+      {super.key,
+      required this.title,
       this.author,
       required this.description,
       required this.imageUrl,
@@ -21,11 +22,62 @@ class NewsCard extends StatelessWidget {
       width: double.infinity,
       height: 300,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10), color: Colors.white54),
+          borderRadius: BorderRadius.circular(10), color: Colors.white),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          _buildImage(),
           Container(
+            margin: const EdgeInsets.only(left: 20, right: 20, top: 5),
+            child: Column(
+              children: [
+               _buildTitle(),
+                _buildDescription(),
+               _buildSizedBox(),
+              _buildCalender()
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+  Widget _buildTitle(){
+    return  Text(
+                  title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(fontSize: 20),
+                );
+  }
+   Widget _buildDescription(){
+    return Text(
+                  description,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                );
+   }
+   Widget _buildSizedBox(){
+    return  const SizedBox(
+                  height: 10,
+                );
+   }
+   Widget _buildCalender(){
+    return   Row(
+                  children: [
+                    const Icon(
+                      Icons.person_rounded,
+                      color: Colors.black26,
+                    ),
+                    Text(
+                      publishedAt,
+                      style: const TextStyle(color: Colors.black, fontSize: 10),
+                    ),
+                  ],
+                );
+   }
+   Widget _buildImage(){
+    return Container(
               margin: const EdgeInsets.all(10),
               width: double.infinity,
               height: 150,
@@ -45,42 +97,6 @@ class NewsCard extends StatelessWidget {
                         );
                       },
                     ),
-                  ))),
-          Container(
-            margin: const EdgeInsets.only(left: 20, right: 20, top: 5),
-            child: Column(
-              children: [
-                Text(
-                  title,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(fontSize: 20),
-                ),
-                Text(
-                  description,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.person_rounded,
-                      color: Colors.black26,
-                    ),
-                    Text(
-                      publishedAt,
-                      style: const TextStyle(color: Colors.black, fontSize: 10),
-                    ),
-                  ],
-                )
-              ],
-            ),
-          )
-        ],
-      ),
-    );
-  }
+                  )));
+   }
 }

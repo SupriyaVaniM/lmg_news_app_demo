@@ -17,11 +17,15 @@ class NewsController extends GetxController {
     try {
       isLoading(true);
       var articles = await networkService.fetchNewsArticles();
-      newsArticles(articles);
-    } catch(e){
-      throw Exception(e);
-    }
-    finally {
+
+      if (articles != null) {
+        newsArticles(articles);
+      } else {
+        throw Exception('Failed to fetch articles');
+      }
+    } catch (e) {
+      throw Exception('Error fetching articles: $e');
+    } finally {
       isLoading(false);
     }
   }
