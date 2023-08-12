@@ -1,5 +1,5 @@
 
-const String apiKey = 'or6FLblILMIK9PgzUKJVhXKh4CK2FnDvAO5JuavM';
+const String apiKey = '1l8aZQ3ASn23prS4N5BIsxk6sKCNaMOsKEkFFAQS';
 const String search ='india';
 const String categories ='tech';
 const String language = 'en';
