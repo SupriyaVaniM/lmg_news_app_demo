@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 import 'package:lmg_news_app_demo/core/constants/constants.dart';
 import 'package:lmg_news_app_demo/models/news_model.dart';
 
-class ApiService {
+class NetworkService {
   static var client = http.Client();
 
   static Future<List<NewsArticle>?> fetchNewsArticles() async {

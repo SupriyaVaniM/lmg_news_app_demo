@@ -42,7 +42,7 @@ class _NewsPageState extends State<NewsPage> {
                       onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => HomePage(
+                              builder: (context) => ExpandedView(
                                     title: newsController
                                         .newsArticles[index].title,
                                     description: newsController

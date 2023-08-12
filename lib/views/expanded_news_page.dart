@@ -1,14 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+class ExpandedView extends StatefulWidget {
   final String title;
   final String description;
   final String publishedAt;
 
   final String imageUrl;
 
-  const HomePage({
+  const ExpandedView({
     super.key,
     required this.title,
     required this.description,
@@ -17,10 +17,10 @@ class HomePage extends StatefulWidget {
   });
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<ExpandedView> createState() => _ExpandedViewState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _ExpandedViewState extends State<ExpandedView> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                                   },
                                 ))),),
                                  Padding(
-                                   padding: const EdgeInsets.only(top:12.0),
+                                   padding: const EdgeInsets.only(top:10.0),
                                    child: Align(
                                      alignment: Alignment.topCenter,
                                      child: Text(
